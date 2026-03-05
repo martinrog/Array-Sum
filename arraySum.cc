@@ -26,9 +26,14 @@ int main(int argc, char *argv[]) {
 
     input_array a = readArray(std::string(argv[1]));
 
+    double start = omp_get_wtime();
     sum = sumArray(a);
+    double end = omp_get_wtime();
+
     cout << "The sum of the values in the input file '" << argv[1]
-      << "' is " << sum << endl;
+    << "' is " << sum << endl;
+
+    cout << "Elapsed time = " << (end - start) << " sec" << endl;
 
     return 0;
 }
